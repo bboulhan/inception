@@ -1,0 +1,5 @@
+CREATE DATABASE IF NOT EXISTS db;
+CREATE USER IF NOT EXISTS 'bboulhan'@'%' IDENTIFIED BY 'ibra2001';
+GRANT ALL   ON db.* TO 'bboulhan'@'%';
+ALTER USER 'root'@'localhost' IDENTIFIED BY 'root42';
+FLUSH PRIVILEGES;
