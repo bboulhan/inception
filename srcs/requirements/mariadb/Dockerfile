@@ -11,4 +11,5 @@ COPY /tools/script.sh /ibra
 CMD ["bash", "./ibra/script.sh"]
 # CMD ["chmod 777", "./ibra/script.sh"]
 # CMD ["mysqld_safe"]
+# CMD ["mysqld"]
 
