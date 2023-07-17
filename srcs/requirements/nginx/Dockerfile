@@ -6,11 +6,11 @@
 #    By: bboulhan <bboulhan@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/06/18 15:41:12 by bboulhan          #+#    #+#              #
-#    Updated: 2023/06/22 15:12:59 by bboulhan         ###   ########.fr        #
+#    Updated: 2023/07/17 16:54:08 by bboulhan         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-FROM debian
+FROM debian:buster
 
 RUN apt-get update -y && apt-get install -y nginx && apt-get install -y openssl
 

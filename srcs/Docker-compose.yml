@@ -7,14 +7,14 @@ services:
   #     - "443:443"
 
   mariadb:
-    build: ./requirements/mariadb
-    container_name: mariadb_c
     env_file:
       - .env
+    build: ./requirements/mariadb
+    container_name: mariadb_c
     ports:
       - "3306:3306"
-    volumes:
-      - ./mysql:/var/lib/mysql
+    # volumes:
+    #   - ./mysql:/var/lib/mysql
     stdin_open: true
     tty: true
 
