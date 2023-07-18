@@ -1,4 +1,13 @@
 version: "3.8"
+
+volumes:
+  mariadb_v:
+    driver: local
+    driver_opts:
+      o: bind
+      type: none
+      device: $HOME/Desktop/data/mariadb
+
 services:
   # nginx:
   #   build: ./requirements/nginx
@@ -13,9 +22,11 @@ services:
     container_name: mariadb_c
     ports:
       - "3306:3306"
-    # volumes:
-    #   - ./mysql:/var/lib/mysql
+    volumes:
+      - mariadb_v:/var/lib/mysql/
     stdin_open: true
     tty: true
+
+ 
 
     
