@@ -7,13 +7,22 @@ volumes:
       o: bind
       type: none
       device: $HOME/Desktop/data/mariadb
+  wordpress_v:
+    driver: local
+    driver_opts:
+      o: bind
+      type: none
+      device: $HOME/Desktop/data/wordpress
+    
 
 services:
-  # nginx:
-  #   build: ./requirements/nginx
-  #   container_name: nginx_c
-  #   ports:
-  #     - "443:443"
+  nginx:
+    build: ./requirements/nginx
+    container_name: nginx_c
+    ports:
+      - "443:443"
+    depends_on:
+      - wordpress
 
   mariadb:
     env_file:
@@ -26,6 +35,20 @@ services:
       - mariadb_v:/var/lib/mysql
     stdin_open: true
     tty: true
+
+  wordpress:
+    depends_on:
+      - mariadb
+    env_file:
+      - .env
+    build: ./requirements/wordpress
+    container_name: wordpress_c
+    ports:
+      - "9000:9000"
+    volumes:
+      - wordpress_v:/var/lib/mysql
+
+
 
  
 
