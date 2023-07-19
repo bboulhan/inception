@@ -4,10 +4,9 @@ RUN apt-get update && apt-get install -y mariadb-server
 
 RUN mkdir ibra
 
-# COPY /tools/init.sql /ibra
-
 COPY /tools/script.sh /ibra 
 
-CMD ["bash", "./ibra/script.sh"]
+CMD ["bash","./ibra/script.sh"]
+
 
 

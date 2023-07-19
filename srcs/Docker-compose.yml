@@ -23,7 +23,7 @@ services:
     ports:
       - "3306:3306"
     volumes:
-      - mariadb_v:/var/lib/mysql/
+      - mariadb_v:/var/lib/mysql
     stdin_open: true
     tty: true
 
