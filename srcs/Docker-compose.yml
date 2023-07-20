@@ -23,6 +23,8 @@ services:
       - "443:443"
     depends_on:
       - wordpress
+    volumes:
+      - wordpress_v:/var/www/html
 
   mariadb:
     env_file:
@@ -43,10 +45,11 @@ services:
       - .env
     build: ./requirements/wordpress
     container_name: wordpress_c
+    # command: ["tail","-f","/dev/null"]
     ports:
       - "9000:9000"
     volumes:
-      - wordpress_v:/var/lib/mysql
+      - wordpress_v:/var/www/html
 
 
 
