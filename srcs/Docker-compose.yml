@@ -45,8 +45,6 @@ services:
       - mariadb_v:/var/lib/mysql
     networks:
       - local
-    stdin_open: true
-    tty: true
 
   wordpress:
     depends_on:

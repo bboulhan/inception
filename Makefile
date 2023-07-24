@@ -10,3 +10,22 @@
 #                                                                              #
 # **************************************************************************** #
 
+build:	create
+	docker-compose -f srcs/docker-compose.yml build
+
+create:
+	mkdir -p ${HOME}/data/mariadb ${HOME}/data/wordpress 
+
+run: build up
+
+up:
+	docker-compose -f srcs/docker-compose.yml up -d
+
+down:
+	docker-compose -f srcs/docker-compose.yml down
+
+delete:
+	rm -rf ${HOME}/data/mariadb ${HOME}/data/wordpress
+
+clean:	delete
+	docker-compose -f srcs/docker-compose.yml down --volumes
